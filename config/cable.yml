@@ -5,6 +5,12 @@ test:
   adapter: test
 
 production:
-  adapter: redis
+  # adapter: redis
+  adapter: async
+  # adapter: redis
+  # 本番環境での利用推奨(EC2でのデプロイでは料金発生)
+
+  # adapter: postgresql
+  # 本番環境での利用推奨。データベースとのやりとりにPostgreSQLを使用していることが条件
   url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
   channel_prefix: mini_talk_app_production
